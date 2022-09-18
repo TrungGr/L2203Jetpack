@@ -2,6 +2,7 @@ package com.ddona.l2003jetpack
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.ddona.l2003jetpack.databinding.ActivityMainBinding
 import com.ddona.l2003jetpack.vm.MainViewModel
@@ -9,7 +10,9 @@ import com.ddona.l2003jetpack.vm.MainViewModel
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+
+    //    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
 
 //    var number: Int = 0
 
@@ -18,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //Cách khởi tạo
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         binding.btnUp.setOnClickListener {
             viewModel.updateNumber()//2
 //            upNumber()
